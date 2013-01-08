@@ -1,0 +1,13 @@
+{
+  "name": "multicouch",
+  "version": "0.1.0",
+  "description": "Launch multiple CouchDBs from the same installation.",
+  "main": "lib/multicouch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Jan Lehnardt",
+  "license": "Apache 2",
+  "readmeFilename": "README.md"
+}

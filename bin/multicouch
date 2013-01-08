@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+var MultiCouch = require("../lib/multicouch");
+var my_couch = new MultiCouch({});
+my_couch.stop();
