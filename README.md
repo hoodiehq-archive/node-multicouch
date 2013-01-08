@@ -1,6 +1,6 @@
 # Multi-Couch
 
-Launch multiple CouchDB’s from the same installation, programmaticly 
+Launch multiple CouchDBs from the same installation, programmaticly 
 or from the command line.
 
 
