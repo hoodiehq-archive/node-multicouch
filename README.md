@@ -31,10 +31,10 @@ From Node:
     var MultiCouch = require("multi-couch");
     var my_couch = new MultiCouch({
       port: 8080,
-      db_dir: "/tmp",
-      view_dir: "/tmp", // same as db_dir when ommitted
-      log_file: "/tmp/couch.log",
-      uri_file: "/tmp/couch.uri"
+      prefix: "/tmp"
+      // view_dir: "/tmp", // same as db_dir when ommitted
+      // log_file: "/tmp/couch.log",
+      // uri_file: "/tmp/couch.uri"
       });
     
     my_couch.start();
