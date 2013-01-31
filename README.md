@@ -28,7 +28,7 @@ To do this, we create a new CouchDB config file that includes all the values and
 
 From Node:
 
-    var MultiCouch = require("multi-couch");
+    var MultiCouch = require("multicouch");
     var my_couch = new MultiCouch({
       port: 8080,
       prefix: "/tmp"
