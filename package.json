@@ -10,7 +10,7 @@
   "author": "Jan Lehnardt",
   "license": "Apache 2",
   "readmeFilename": "README.md",
-  "devDependencies": {
+  "dependencies": {
       "commander": "1.x"
   }
 }
