@@ -1,6 +1,6 @@
 {
   "name": "multicouch",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Launch multiple CouchDBs from the same installation.",
   "main": "lib/multicouch.js",
   "scripts": {
@@ -9,5 +9,8 @@
   "repository": "git://github.com/hoodiehq/node-multicouch.git",
   "author": "Jan Lehnardt",
   "license": "Apache 2",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+      "commander": "1.x"
+  }
 }
