@@ -9,5 +9,8 @@
   "repository": "git://github.com/hoodiehq/node-multicouch.git",
   "author": "Jan Lehnardt",
   "license": "Apache 2",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "devDependencies": {
+      "commander": "1.x"
+  }
 }
