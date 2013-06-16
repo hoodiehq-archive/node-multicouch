@@ -34,7 +34,8 @@ From Node:
       prefix: "/tmp"
       // view_dir: "/tmp", // same as db_dir when ommitted
       // log_file: "/tmp/couch.log",
-      // uri_file: "/tmp/couch.uri"
+      // uri_file: "/tmp/couch.uri",
+      // couchdb_path: "/opt/local/bin/couchdb"
       });
     
     my_couch.start();
@@ -57,6 +58,12 @@ From Node:
 From the CLI:
 
     TBD
+
+
+## Configuration
+
+Set the environment variable `COUCHDB_PATH` to the CouchDB
+binary you want to use.
 
 
 ## License
