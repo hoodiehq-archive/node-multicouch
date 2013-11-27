@@ -11,8 +11,9 @@
   "license": "Apache 2",
   "readmeFilename": "README.md",
   "dependencies": {
-      "commander": "1.x",
-      "which": "1.x",
-      "ini": "1.x"
+    "commander": "1.x",
+    "which": "1.x",
+    "ini": "1.x",
+    "shelljs": "~0.2.6"
   }
 }
