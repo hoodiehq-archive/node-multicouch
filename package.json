@@ -1,10 +1,13 @@
 {
   "name": "multicouch",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Launch multiple CouchDBs from the same installation.",
   "main": "lib/multicouch.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "bin": {
+    "multicouch": "bin/multicouch"
   },
   "repository": "git://github.com/hoodiehq/node-multicouch.git",
   "author": "Jan Lehnardt",
