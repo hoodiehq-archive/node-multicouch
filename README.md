@@ -8,7 +8,7 @@ or from the command line.
 
 You can have many reasons for running more than one instance of the same CouchDB installation. Maybe you are developing multiple apps, and would like an instance per app, or you are just plain daring.
 
-CouchDB allows you to run multiple separate instances from the same installation. So in iaddition to the default installation you can launch more.
+CouchDB allows you to run multiple separate instances from the same installation. So in addition to the default installation you can launch more.
 
 To do that, you will need to adjust a few configuration variables. Namly:
 
