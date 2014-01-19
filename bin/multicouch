@@ -19,10 +19,8 @@ couch_process.start();
 setInterval(function (){}, 60000);
 
 function quit() {
+    couch_process.on('stop', function() { process.exit(0); });
     couch_process.stop();
-    setTimeout(function () {
-        process.exit();
-    }, 1000);
 }
 // HT: node-supervisor
 ['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'].forEach(function (s) {
