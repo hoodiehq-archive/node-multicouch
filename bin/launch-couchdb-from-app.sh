@@ -3,3 +3,4 @@
 BASE=`mdfind "kMDItemCFBundleIdentifier == org.apache.couchdb" | head -1`
 cd "$BASE"/Contents/Resources/couchdbx-core
 ./bin/couchdb "$@"
+
