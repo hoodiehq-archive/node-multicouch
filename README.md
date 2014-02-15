@@ -1,6 +1,6 @@
 # Multi-Couch
 
-Launch multiple CouchDBs from the same installation, programmaticly 
+Launch multiple CouchDBs from the same installation, programmatically
 or from the command line.
 
 
@@ -10,7 +10,7 @@ You can have many reasons for running more than one instance of the same CouchDB
 
 CouchDB allows you to run multiple separate instances from the same installation. So in addition to the default installation you can launch more.
 
-To do that, you will need to adjust a few configuration variables. Namly:
+To do that, you will need to adjust a few configuration variables. Namely:
 
  * The TCP port to bind to.
  * The database directory.
@@ -28,32 +28,36 @@ To do this, we create a new CouchDB config file that includes all the values and
 
 From Node:
 
-    var MultiCouch = require("multicouch");
-    var my_couch = new MultiCouch({
-      port: 8080,
-      prefix: "/tmp"
-      // view_dir: "/tmp", // same as db_dir when ommitted
-      // log_file: "/tmp/couch.log",
-      // uri_file: "/tmp/couch.uri",
-      // couchdb_path: "/opt/local/bin/couchdb"
-      });
-    
-    my_couch.start();
+```js
 
-    my_couch.stop();
+ var MultiCouch = require('multicouch');
+ 
+ var my_couch = new MultiCouch({
+   port: 8080,
+   prefix: '/tmp'
+   // view_dir: '/tmp', // same as db_dir when omitted
+   // log_file: '/tmp/couch.log',
+   // uri_file: '/tmp/couch.uri',
+   // couchdb_path: '/opt/local/bin/couchdb'
+ });
 
-    my_couch.on("start", function() {
-      console.log("CouchDB started.");
-      });
+ my_couch.start();
 
-    my_couch.on("stop", function() {
-      console.log("CouchDB stopped.");
-      });
+ my_couch.stop();
 
-    my_couch.on("error", function(error) {
-      console.log("CouchDB errored '%s'.", error);
-      });
+ my_couch.on('start', function() {
+   console.log('CouchDB started.');
+ });
 
+ my_couch.on('stop', function() {
+   console.log('CouchDB stopped.');
+ });
+
+my_couch.on('error', function(error) {
+  console.log('CouchDB errored '%s'.', error);
+});
+
+```
 
 From the CLI:
 
