@@ -2,21 +2,27 @@
 
 var MultiCouch = require('../lib/multicouch');
 
-exports['multicouch emits start event asynchronously'] = function (test) {
-  var couch;
+exports.tearDown = function (callback) {
+  this.couch.stop();
 
+  this.couch.once('stop', function () {
+    callback();
+  });
+};
+
+exports['multicouch emits start event asynchronously'] = function (test) {
   test.expect(0);
 
   function synchronousCatcher () {
     throw new Error('start event emitted synchronously');
   }
 
-  couch = new MultiCouch({});
-  couch.on('start', synchronousCatcher);
-  couch.start();
-  couch.removeListener('start', synchronousCatcher);
+  this.couch = new MultiCouch({});
+  this.couch.on('start', synchronousCatcher);
+  this.couch.start();
+  this.couch.removeListener('start', synchronousCatcher);
 
-  couch.on('start', function() {
+  this.couch.on('start', function() {
     test.done();
   });
 };
