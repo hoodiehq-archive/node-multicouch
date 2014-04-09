@@ -1,6 +1,7 @@
 // Execute `nodeunit test` from `node-multicouch` directory to run this test.
 
 var MultiCouch = require('../lib/multicouch');
+var request = require('request');
 
 exports.tearDown = function (callback) {
   if (!this.couch) {
@@ -52,6 +53,23 @@ exports['multicouch emits stop event asynchronously'] = function (test) {
     couch.removeListener('stop', synchronousCatcher);
 
     couch.on('stop', function() {
+      test.done();
+    });
+  });
+};
+
+exports['couchdb is ready for requests on start event'] = function (test) {
+  var couch;
+  var port = 12345;
+
+  test.expect(1);
+
+  this.couch = new MultiCouch({ port: port });
+  this.couch.start();
+
+  this.couch.on('start', function() {
+    request('http://localhost:' + port, function (err) {
+      test.equal(err, null);
       test.done();
     });
   });

@@ -15,5 +15,8 @@
     "which": "1.x",
     "ini": "1.x",
     "shelljs": "~0.2.6"
+  },
+  "devDependencies": {
+    "request": "^2.34.0"
   }
 }
