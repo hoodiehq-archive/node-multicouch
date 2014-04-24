@@ -4,7 +4,7 @@
   "description": "Launch multiple CouchDBs from the same installation.",
   "main": "lib/multicouch.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/nodeunit test"
   },
   "repository": "git://github.com/hoodiehq/node-multicouch.git",
   "author": "Jan Lehnardt",
@@ -17,6 +17,7 @@
     "shelljs": "~0.2.6"
   },
   "devDependencies": {
+    "nodeunit": "^0.8.6",
     "request": "^2.34.0"
   }
 }
