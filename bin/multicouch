@@ -4,7 +4,7 @@ var mc = require("../lib/multicouch"),
     cmdline = require('commander');
     
 var quit;
-
+var stopSignals;
 var opts = cmdline
     .usage('[options] [<prefix>]')
     .option("-p, --port [number]", "bind server to port", parseInt)
@@ -30,6 +30,7 @@ quit = function () {
     couch_process.stop();
 }
 // HT: node-supervisor
-['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'].forEach(function (s) {
+stopSignals = ['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'];
+stopSignals.forEach(function (s) {
     process.on(s, quit);
 });
