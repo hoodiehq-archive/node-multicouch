@@ -10,6 +10,7 @@ var opts = cmdline
     .option("-p, --port [number]", "bind server to port", parseInt)
     .option("-d, --db_dir [path]", "database directory")
     .option("-c, --couchdb_path [path]", "executable path")
+    .option("-k, --kill [boolean]", "kill couch on stop")
     .parse(process.argv);
 
 if (opts.args.length) opts.prefix = opts.args[0];
