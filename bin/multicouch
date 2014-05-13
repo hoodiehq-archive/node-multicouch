@@ -17,7 +17,7 @@ if (opts.args.length) opts.prefix = opts.args[0];
 var couch_process = new mc(opts);
 
 couch_process.on('start', function () {
-    console.log('Started couch on http://localhost:' + opts.port);
+    console.log('Started Apache CouchDB on http://localhost:' + opts.port);
 });
 
 couch_process.start();
