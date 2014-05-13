@@ -1,6 +1,6 @@
 {
   "name": "multicouch",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "Launch multiple CouchDBs from the same installation.",
   "main": "lib/multicouch.js",
   "scripts": {
