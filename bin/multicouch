@@ -2,23 +2,30 @@
 
 var mc = require("../lib/multicouch"),
     cmdline = require('commander');
+    
+var quit;
 
 var opts = cmdline
     .usage('[options] [<prefix>]')
     .option("-p, --port [number]", "bind server to port", parseInt)
     .option("-d, --db_dir [path]", "database directory")
     .option("-c, --couchdb_path [path]", "executable path")
-.parse(process.argv);
+    .parse(process.argv);
 
 if (opts.args.length) opts.prefix = opts.args[0];
 
 var couch_process = new mc(opts);
+
+couch_process.on('start', function () {
+    console.log('Started couch on http://localhost:' + opts.port);
+});
+
 couch_process.start();
 
 // HACK: keep process alive until a quit-ly signal is received
-setInterval(function (){}, 60000);
+setInterval(function () {}, 60000);
 
-function quit() {
+quit = function () {
     couch_process.on('stop', function() { process.exit(0); });
     couch_process.stop();
 }
