@@ -2,27 +2,36 @@
 
 var mc = require("../lib/multicouch"),
     cmdline = require('commander');
-
+    
+var quit;
+var stopSignals;
 var opts = cmdline
     .usage('[options] [<prefix>]')
     .option("-p, --port [number]", "bind server to port", parseInt)
     .option("-d, --db_dir [path]", "database directory")
     .option("-c, --couchdb_path [path]", "executable path")
-.parse(process.argv);
+    .option("-k, --kill [boolean]", "kill couch on stop")
+    .parse(process.argv);
 
 if (opts.args.length) opts.prefix = opts.args[0];
 
 var couch_process = new mc(opts);
+
+couch_process.on('start', function () {
+    console.log('Started Apache CouchDB on http://localhost:' + opts.port);
+});
+
 couch_process.start();
 
 // HACK: keep process alive until a quit-ly signal is received
-setInterval(function (){}, 60000);
+setInterval(function () {}, 60000);
 
-function quit() {
+quit = function () {
     couch_process.on('stop', function() { process.exit(0); });
     couch_process.stop();
 }
 // HT: node-supervisor
-['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'].forEach(function (s) {
+stopSignals = ['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'];
+stopSignals.forEach(function (s) {
     process.on(s, quit);
 });
