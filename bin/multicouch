@@ -8,6 +8,11 @@ var stopSignals;
 var opts = cmdline
     .usage('[options] [<prefix>]')
     .option("-p, --port [number]", "bind server to port", parseInt)
+    .option("-P, --pid_file [path]", "path to pid file")
+    .option("-u, --uri_file [path]", "path to uri file")
+    .option("-o, --stdout_file [path]", "path to stdout file")
+    .option("-e, --stderr_file [path]", "path to stderr file")
+    .option("-l, --log_file [path]", "path to log file")
     .option("-d, --db_dir [path]", "database directory")
     .option("-c, --couchdb_path [path]", "executable path")
     .option("-k, --kill [boolean]", "kill couch on stop")
