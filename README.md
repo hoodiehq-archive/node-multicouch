@@ -1,4 +1,5 @@
 # Multi-Couch
+[![Build Status](https://travis-ci.org/hoodiehq/node-multicouch.svg)](https://travis-ci.org/hoodiehq/node-multicouch)
 
 Launch multiple CouchDBs from the same installation, programmaticly 
 or from the command line.
