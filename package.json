@@ -11,9 +11,13 @@
   "license": "Apache 2",
   "readmeFilename": "README.md",
   "dependencies": {
-    "commander": "1.x",
-    "which": "1.x",
-    "ini": "1.x",
-    "shelljs": "~0.2.6"
+    "commander": "^1.3.2",
+    "which": "^1.0.5",
+    "ini": "^1.2.1",
+    "shelljs": "^0.2.6"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-release-hoodie": "^1.3.0"
   }
 }

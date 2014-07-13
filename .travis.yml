@@ -1,0 +1,15 @@
+script:
+- echo "Don't mind me. I'm here for deployments only..."
+language: node_js
+node_js:
+- '0.10'
+notifications:
+  email: false
+deploy:
+  provider: npm
+  email: stephan@boennemann.me
+  api_key:
+    secure: MgWj/Ojy1S8/cw89n6yP/JCge4dEV0zPKM1L0z5fHyh3myP5c6vhqwmnlJsz88i1yjgSkEbqAZ3z6LYnU19QctjIiAeSjI2gplyk684QeiXJdLdlhL5PvOPkutjyqFbetKsQTto7q/4/Rl5XlmbHEoRNQ0+gE73eL+QROKdpD00=
+  on:
+    tags: true
+    repo: hoodiehq/node-multicouch

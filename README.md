@@ -1,4 +1,7 @@
 # Multi-Couch
+[![Build Status](https://travis-ci.org/hoodiehq/node-multicouch.svg)](https://travis-ci.org/hoodiehq/node-multicouch)
+[![Dependency Status](https://david-dm.org/hoodiehq/node-multicouch.svg)](https://david-dm.org/hoodiehq/node-multicouch)
+[![devDependency Status](https://david-dm.org/hoodiehq/node-multicouch/dev-status.svg)](https://david-dm.org/hoodiehq/hoodie-server#info=devDependencies)
 
 Launch multiple CouchDBs from the same installation, programmaticly 
 or from the command line.
