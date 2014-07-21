@@ -1,5 +1,3 @@
-script:
-- echo "Don't mind me. I'm here for deployments only..."
 language: node_js
 node_js:
 - '0.10'

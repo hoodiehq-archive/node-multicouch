@@ -14,4 +14,5 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('ci', ['integration-test']);
 };

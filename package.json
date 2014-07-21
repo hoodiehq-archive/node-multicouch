@@ -4,7 +4,7 @@
   "description": "Launch multiple CouchDBs from the same installation.",
   "main": "lib/multicouch.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt ci"
   },
   "repository": "git://github.com/hoodiehq/node-multicouch.git",
   "author": "Jan Lehnardt",
@@ -18,6 +18,6 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-release-hoodie": "^1.3.0"
+    "grunt-release-hoodie": "^1.4.1"
   }
 }
