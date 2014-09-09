@@ -20,3 +20,7 @@ before_deploy:
 - grunt before-deploy
 after_deploy:
 - grunt after-deploy
+sudo: false
+cache:
+  directories:
+  - node_modules
