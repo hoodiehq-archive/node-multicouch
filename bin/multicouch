@@ -8,6 +8,7 @@ var opts = cmdline
     .option("-p, --port [number]", "bind server to port", parseInt)
     .option("-d, --db_dir [path]", "database directory")
     .option("-c, --couchdb_path [path]", "executable path")
+    .option("-i, --interactive", "couch interactive")
 .parse(process.argv);
 
 if (opts.args.length) opts.prefix = opts.args[0];
@@ -15,14 +16,16 @@ if (opts.args.length) opts.prefix = opts.args[0];
 var couch_process = new mc(opts);
 couch_process.start();
 
-// HACK: keep process alive until a quit-ly signal is received
-setInterval(function (){}, 60000);
+if (!opts.interactive) {
+	// HACK: keep process alive until a quit-ly signal is received
+	setInterval(function (){}, 60000);
 
-function quit() {
-    couch_process.on('stop', function() { process.exit(0); });
-    couch_process.stop();
+	function quit() {
+	    couch_process.on('stop', function() { process.exit(0); });
+	    couch_process.stop();
+	}
+	// HT: node-supervisor
+	['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'].forEach(function (s) {
+	    process.on(s, quit);
+	});	
 }
-// HT: node-supervisor
-['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'].forEach(function (s) {
-    process.on(s, quit);
-});
