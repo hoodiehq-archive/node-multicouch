@@ -1,28 +1,44 @@
 #!/usr/bin/env node
 
 var mc = require("../lib/multicouch"),
-    cmdline = require('commander');
+    cmdline = require('commander'),
+    repl = require("repl"),
+    couchr = require('../lib/couchrwrap');
 
 var opts = cmdline
     .usage('[options] [<prefix>]')
     .option("-p, --port [number]", "bind server to port", parseInt)
     .option("-d, --db_dir [path]", "database directory")
     .option("-c, --couchdb_path [path]", "executable path")
+    .option("-l, --repl", "repl couch")
 .parse(process.argv);
 
 if (opts.args.length) opts.prefix = opts.args[0];
-
 var couch_process = new mc(opts);
 couch_process.start();
 
-// HACK: keep process alive until a quit-ly signal is received
-setInterval(function (){}, 60000);
 
-function quit() {
-    couch_process.on('stop', function() { process.exit(0); });
-    couch_process.stop();
+if (opts.repl) {
+	var exp = repl.start({
+	    prompt: "repl couch> ",
+	    input: couch_process.stdin,
+	    output: couch_process.stdout
+	  }).on('exit', function() {
+	    couch_process.on('stop', function() { process.exit(0); });
+	    couch_process.stop();
+	  });
+	exp.context.couch = couchr;
+} else {
+	//HACK: keep process alive until a quit-ly signal is received
+	setInterval(function (){}, 60000);
+
+	function quit() {
+	    couch_process.on('stop', function() { process.exit(0); });
+	    couch_process.stop();
+	}
+	// HT: node-supervisor
+	['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'].forEach(function (s) {
+	    process.on(s, quit);
+	});	
 }
-// HT: node-supervisor
-['SIGTERM', 'SIGINT', 'SIGHUP', 'SIGQUIT'].forEach(function (s) {
-    process.on(s, quit);
-});
+

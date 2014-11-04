@@ -58,10 +58,18 @@ From Node:
       });
 
 
-From the CLI:
+From the CLI (-l start repl in fork):
 
-    TBD
+    ./bin/multicouch -p 5984 -d data -l
+    
+    couch.start() // to initiate dbs
 
+    couch.db.xxx.allDocs()
+    couch.db.xxx.get("id")
+    couch.db.xxx.post({test:"test"})
+    couch.db.xxx.put("id", "rev",{test:"test"})
+    couch.db.xxx.head()
+    couch.db.xxx.del("id", "rev")
 
 ## Configuration
 
