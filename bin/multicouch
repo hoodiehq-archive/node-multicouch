@@ -6,6 +6,7 @@ var mc = require("../lib/multicouch"),
 var opts = cmdline
     .usage('[options] [<prefix>]')
     .option("-p, --port [number]", "bind server to port", parseInt)
+    .option("-r, --respawn [seconds]", "respawn timeout (0 to disable)", parseInt)
     .option("-d, --db_dir [path]", "database directory")
     .option("-c, --couchdb_path [path]", "executable path")
 .parse(process.argv);
